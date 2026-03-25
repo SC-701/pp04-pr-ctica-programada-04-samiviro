@@ -1,4 +1,9 @@
-﻿CREATE PROCEDURE ObtenerVehiculos 
+﻿-- =============================================
+-- Author:		<Author,,Name>
+-- Create date: <Create Date,,>
+-- Description:	<Description,,>
+-- =============================================
+CREATE PROCEDURE ObtenerVehiculos
 	-- Add the parameters for the stored procedure here
 	
 AS
@@ -8,8 +13,8 @@ BEGIN
 	SET NOCOUNT ON;
 
     -- Insert statements for procedure here
-	SELECT         Vehiculo.Id, Vehiculo.Placa, Vehiculo.Color, Vehiculo.Anio, Vehiculo.Precio, Vehiculo.CorreoPropietario, Vehiculo.TelefonoPropietario, Marcas.Nombre, Modelos.Nombre AS Expr1
-FROM            Marcas INNER JOIN
-                         Modelos ON Marcas.Id = Modelos.IdMarca INNER JOIN
-                         Vehiculo ON Modelos.Id = Vehiculo.IdModelo
+		SELECT Vehiculo.Id, Vehiculo.IdModelo, Vehiculo.Placa, Vehiculo.Color, Vehiculo.Anio, Vehiculo.Precio, Vehiculo.CorreoPropietario, Vehiculo.TelefonoPropietario, Modelos.Nombre AS Modelo, Marcas.Nombre AS Marca
+		FROM   Marcas INNER JOIN
+             Modelos ON Marcas.Id = Modelos.IdMarca INNER JOIN
+             Vehiculo ON Modelos.Id = Vehiculo.IdModelo
 END
