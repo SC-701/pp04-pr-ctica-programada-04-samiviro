@@ -1,0 +1,37 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.14.36915.13 d17.14
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WEB", "Vehiculos.WEB\WEB.csproj", "{1919EC55-00C0-4DFF-8CDF-7B91A83DE6D0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Abstracciones", "Abstracciones\Abstracciones.csproj", "{1BD89AA6-1AA3-481D-B986-EF0C3B6F1864}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Reglas", "Reglas\Reglas.csproj", "{4BB7FCAD-E44C-473C-B2A0-5F516B192684}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{1919EC55-00C0-4DFF-8CDF-7B91A83DE6D0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1919EC55-00C0-4DFF-8CDF-7B91A83DE6D0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1919EC55-00C0-4DFF-8CDF-7B91A83DE6D0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1919EC55-00C0-4DFF-8CDF-7B91A83DE6D0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1BD89AA6-1AA3-481D-B986-EF0C3B6F1864}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1BD89AA6-1AA3-481D-B986-EF0C3B6F1864}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1BD89AA6-1AA3-481D-B986-EF0C3B6F1864}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1BD89AA6-1AA3-481D-B986-EF0C3B6F1864}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4BB7FCAD-E44C-473C-B2A0-5F516B192684}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4BB7FCAD-E44C-473C-B2A0-5F516B192684}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4BB7FCAD-E44C-473C-B2A0-5F516B192684}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4BB7FCAD-E44C-473C-B2A0-5F516B192684}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {3EE4626C-7A16-43A1-93DC-B887B97EA738}
+	EndGlobalSection
+EndGlobal

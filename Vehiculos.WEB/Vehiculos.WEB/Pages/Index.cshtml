@@ -1,0 +1,103 @@
+﻿@page
+@model Web.Pages.IndexModel
+@{
+    ViewData["Title"] = "Vehículos";
+    var totalVehiculos = Model.vehiculos?.Count ?? 0;
+}
+
+<section class="page-card">
+    <div class="page-hero">
+        <div>
+            <h2>Vehículos registrados</h2>
+        </div>
+
+        <div class="hero-panel">
+            <div class="value">@totalVehiculos</div>
+        </div>
+    </div>
+</section>
+
+<section class="page-card">
+    <div class="section-header">
+        <div>
+            <h3>Listado de vehículos</h3>
+        </div>
+        <a class="btn-shell" asp-page="/Vehiculos/Agregar">
+            <i class="bi bi-plus-circle-fill"></i>
+            Agregar vehículo
+        </a>
+    </div>
+
+    
+
+    @if (totalVehiculos > 0)
+    {
+        <div class="list-grid">
+            @foreach (var vehiculo in Model.vehiculos)
+            {
+                <article class="vehicle-card">
+                    <div class="vehicle-card-top">
+                        <div class="d-flex gap-3 align-items-start">
+                            <div class="vehicle-avatar">
+                                <i class="bi bi-car-front-fill"></i>
+                            </div>
+                            <div>
+                                <h4 class="vehicle-title">@Html.DisplayFor(modelo => vehiculo.Marca) @Html.DisplayFor(modelo => vehiculo.Modelo)</h4>
+                                <p class="vehicle-subtitle">Placa @Html.DisplayFor(modelo => vehiculo.Placa)</p>
+                            </div>
+                        </div>
+                        <span class="soft-chip">
+                            <i class="bi bi-calendar3"></i>
+                            @Html.DisplayFor(modelo => vehiculo.Anio)
+                        </span>
+                    </div>
+
+                    <div class="vehicle-meta">
+                        <span class="soft-chip"><i class="bi bi-palette-fill"></i> @Html.DisplayFor(modelo => vehiculo.Color)</span>
+                        <span class="soft-chip"><i class="bi bi-envelope-fill"></i> @Html.DisplayFor(modelo => vehiculo.CorreoPropietario)</span>
+                    </div>
+
+                    <div class="vehicle-specs">
+                        <div class="spec-item">
+                            <div class="label">Teléfono</div>
+                            <div class="value">@Html.DisplayFor(modelo => vehiculo.TelefonoPropietario)</div>
+                        </div>
+                        @* <div class="spec-item">
+                            <div class="label">Identificador</div>
+                            <div class="value">#@vehiculo.Id</div>
+                        </div> *@
+                    </div>
+
+                    <div class="actions-row">
+                        <a class="btn-shell-outline" asp-page="/Vehiculos/Detalle" asp-route-id="@vehiculo.Id">
+                            <i class="bi bi-eye-fill"></i>
+                            Detalle
+                        </a>
+                        <a class="btn-shell-warn" asp-page="/Vehiculos/Editar" asp-route-id="@vehiculo.Id">
+                            <i class="bi bi-pencil-square"></i>
+                            Editar
+                        </a>
+                        <a class="btn-shell-danger" asp-page="/Vehiculos/Eliminar" asp-route-id="@vehiculo.Id">
+                            <i class="bi bi-trash3-fill"></i>
+                            Eliminar
+                        </a>
+                    </div>
+                </article>
+            }
+        </div>
+    }
+    else
+    {
+        <div class="blank-card">
+            <div class="placeholder-avatar mx-auto">
+                <i class="bi bi-inboxes-fill"></i>
+            </div>
+            <h4>No hay vehículos disponibles</h4>
+            <p>El módulo está listo, pero aún no existen registros para mostrar en esta vista.</p>
+            <a class="btn-shell" asp-page="./Agregar">
+                <i class="bi bi-plus-circle-fill"></i>
+                Crear el primero
+            </a>
+        </div>
+    }
+</section>

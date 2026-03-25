@@ -1,0 +1,80 @@
+﻿@page
+@model Web.Pages.Vehiculos.DetalleModel
+@{
+    ViewData["Title"] = "Detalle del Vehículo";
+}
+
+<section class="page-card">
+    <div class="section-header">
+        <div>
+            <h3>Detalle del vehículo</h3>
+        </div>
+        <div class="form-actions m-0">
+            <a class="btn-shell-outline" asp-page="../Index">
+                <i class="bi bi-arrow-left"></i>
+                Regresar
+            </a>
+            <a class="btn-shell-warn" asp-page="/Vehiculos/Editar" asp-route-id="@Model.vehiculo.Id">
+                <i class="bi bi-pencil-square"></i>
+                Editar
+            </a>
+        </div>
+    </div>
+
+    <div class="detail-layout">
+        <aside class="detail-card detail-card-side">
+            <div class="d-flex gap-3 align-items-start">
+                <div class="detail-avatar">
+                    <i class="bi bi-car-front-fill"></i>
+                </div>
+                <div>
+                    <h4 class="detail-title">@Html.DisplayFor(modelo => modelo.vehiculo.Marca) @Html.DisplayFor(modelo => modelo.vehiculo.Modelo)</h4>
+                    <p class="detail-subtitle">Registro #@Model.vehiculo.Id</p>
+                </div>
+            </div>
+
+            <div class="detail-stat">
+                <div class="label">Placa</div>
+                <div class="value">@Html.DisplayFor(modelo => modelo.vehiculo.Placa)</div>
+            </div>
+
+            <div class="detail-stat">
+                <div class="label">Año</div>
+                <div class="value">@Html.DisplayFor(modelo => modelo.vehiculo.Anio)</div>
+            </div>
+
+            <div class="detail-stat">
+                <div class="label">Precio</div>
+                <div class="value">@Html.DisplayFor(modelo => modelo.vehiculo.Precio)</div>
+            </div>
+        </aside>
+
+        <div class="d-flex flex-column gap-3">
+            
+
+            <div class="spec-grid">
+                <article class="spec-card">
+                    <div class="label">Marca</div>
+                    <div class="value">@Html.DisplayFor(modelo => modelo.vehiculo.Marca)</div>
+                </article>
+                <article class="spec-card">
+                    <div class="label">Modelo</div>
+                    <div class="value">@Html.DisplayFor(modelo => modelo.vehiculo.Modelo)</div>
+                </article>
+                <article class="spec-card">
+                    <div class="label">Color</div>
+                    <div class="value">@Html.DisplayFor(modelo => modelo.vehiculo.Color)</div>
+                </article>
+                <article class="spec-card">
+                    <div class="label">Correo del propietario</div>
+                    <div class="value">@Html.DisplayFor(modelo => modelo.vehiculo.CorreoPropietario)</div>
+                </article>
+                <article class="spec-card">
+                    <div class="label">Teléfono del propietario</div>
+                    <div class="value">@Html.DisplayFor(modelo => modelo.vehiculo.TelefonoPropietario)</div>
+                </article>
+      
+            </div>
+        </div>
+    </div>
+</section>

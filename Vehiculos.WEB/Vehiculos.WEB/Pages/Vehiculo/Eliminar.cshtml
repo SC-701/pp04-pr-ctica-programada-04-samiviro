@@ -1,0 +1,82 @@
+﻿@page
+@model Web.Pages.Vehiculos.EliminarModel
+@{
+    ViewData["Title"] = "Eliminar Vehículo";
+}
+
+<section class="page-card">
+    <div class="section-header">
+        <div>
+            <h3>Confirmar eliminación</h3>
+        </div>
+        
+    </div>
+
+    <div class="confirm-layout">
+        <div class="confirm-card">
+            <div class="d-flex gap-3 align-items-start mb-4">
+                <div class="confirm-avatar">
+                    <i class="bi bi-trash3-fill"></i>
+                </div>
+                <div>
+                    <h4 class="confirm-title">@Html.DisplayFor(model => model.vehiculo.Marca) @Html.DisplayFor(model => model.vehiculo.Modelo)</h4>
+                    <p class="confirm-subtitle">Placa @Html.DisplayFor(model => model.vehiculo.Placa)</p>
+                </div>
+            </div>
+
+            <div class="warning-strip mb-4">
+                Estás a punto de eliminar este registro del sistema. 
+            </div>
+
+            <div class="spec-grid mb-4">
+                <article class="spec-card">
+                    <div class="label">Marca</div>
+                    <div class="value">@Html.DisplayFor(model => model.vehiculo.Marca)</div>
+                </article>
+                <article class="spec-card">
+                    <div class="label">Modelo</div>
+                    <div class="value">@Html.DisplayFor(model => model.vehiculo.Modelo)</div>
+                </article>
+                <article class="spec-card">
+                    <div class="label">Año</div>
+                    <div class="value">@Html.DisplayFor(model => model.vehiculo.Anio)</div>
+                </article>
+                <article class="spec-card">
+                    <div class="label">Color</div>
+                    <div class="value">@Html.DisplayFor(model => model.vehiculo.Color)</div>
+                </article>
+                <article class="spec-card">
+                    <div class="label">Correo</div>
+                    <div class="value">@Html.DisplayFor(model => model.vehiculo.CorreoPropietario)</div>
+                </article>
+                <article class="spec-card">
+                    <div class="label">Teléfono</div>
+                    <div class="value">@Html.DisplayFor(model => model.vehiculo.TelefonoPropietario)</div>
+                </article>
+            </div>
+
+            <form method="post">
+                <div class="form-actions">
+                    <a class="btn-shell-outline" asp-page="../Index">
+                        <i class="bi bi-x-circle"></i>
+                        Cancelar
+                    </a>
+                    <button type="submit" class="btn-shell-danger">
+                        <i class="bi bi-trash3-fill"></i>
+                        Eliminar definitivamente
+                    </button>
+                </div>
+
+                <input type="hidden" asp-for="vehiculo.Marca" />
+                <input type="hidden" asp-for="vehiculo.Modelo" />
+                <input type="hidden" asp-for="vehiculo.Placa" />
+                <input type="hidden" asp-for="vehiculo.TelefonoPropietario" />
+                <input type="hidden" asp-for="vehiculo.CorreoPropietario" />
+                <input type="hidden" asp-for="vehiculo.Color" />
+                <input type="hidden" asp-for="vehiculo.Anio" />
+            </form>
+        </div>
+
+        
+    </div>
+</section>
