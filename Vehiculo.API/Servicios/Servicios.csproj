@@ -12,6 +12,8 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Abstracciones\Abstracciones.csproj" />
+	  
+	 
   </ItemGroup>
 
 </Project>

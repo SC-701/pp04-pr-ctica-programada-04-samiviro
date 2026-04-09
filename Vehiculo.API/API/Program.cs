@@ -1,38 +1,14 @@
-using System.Net;
-using System.Text;
 using Abstracciones.Interfaces.DA;
 using Abstracciones.Interfaces.Flujo;
-using Abstracciones.Interfaces.Reglas;
-using Abstracciones.Interfaces.Servicios;
-using Abstracciones.Modelos;
-using Autorizacion.Middleware;
+using Flujo;
 using DA;
 using DA.Repositorios;
-using Flujo;
-using Microsoft.AspNetCore.Authentication.JwtBearer;
-using Microsoft.Extensions.Configuration;
-using Microsoft.IdentityModel.Tokens;
-using Reglas;
+using Abstracciones.Interfaces.Servicios;
 using Servicios;
+using Abstracciones.Interfaces.Reglas;
+using Reglas;
 
 var builder = WebApplication.CreateBuilder(args);
-
-
-var tokenConfig = builder.Configuration.GetSection("Token").Get<TokenConfiguracion>();
-builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
-    .AddJwtBearer(options => {
-        options.TokenValidationParameters = new TokenValidationParameters
-        {
-            ValidateIssuer = true,
-            ValidateAudience = true,
-            ValidateLifetime = true,
-            ValidateIssuerSigningKey = true,
-            ValidIssuer = tokenConfig.Issuer,
-            ValidAudience = tokenConfig.Audience,
-            IssuerSigningKey = new SymmetricSecurityKey(
-                                           Encoding.UTF8.GetBytes(tokenConfig.key))
-        };
-    });
 
 // Add services to the container.
 
@@ -42,32 +18,14 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddHttpClient();
 
-
 builder.Services.AddScoped<IVehiculoFlujo, VehiculoFlujo>();
-builder.Services.AddScoped<IMarcaFlujo, MarcaFlujo>();
-builder.Services.AddScoped<IModeloFlujo, ModeloFlujo>();
-
 builder.Services.AddScoped<IVehiculoDA, VehiculoDA>();
-builder.Services.AddScoped<IMarcaDA, MarcaDA>();
-builder.Services.AddScoped<IModeloDA, ModeloDA>();
-
 builder.Services.AddScoped<IRepositorioDapper, RepositorioDapper>();
-
 builder.Services.AddScoped<IRegistroServicio, RegistroServicio>();
 builder.Services.AddScoped<IRevisionServicio, RevisionServicio>();
-
-builder.Services.AddScoped<IRegistroReglas, RegistroReglas>();
-builder.Services.AddScoped<IRevisionReglas, RevisionReglas>();
-
 builder.Services.AddScoped<IConfiguracion, Configuracion>();
-
-
-builder.Services.AddTransient<Autorizacion.Abstracciones.Flujo.IAutorizacionFlujo,
-                               Autorizacion.Flujo.AutorizacionFlujo>();
-builder.Services.AddTransient<Autorizacion.Abstracciones.DA.ISeguridadDA,
-                               Autorizacion.DA.SeguridadDA>();
-builder.Services.AddTransient<Autorizacion.Abstracciones.DA.IRepositorioDapper,
-                               Autorizacion.DA.Repositorios.RepositorioDapper>();
+builder.Services.AddScoped<IRevisionReglas, RevisionReglas>();
+builder.Services.AddScoped<IRegistroReglas, RegistroReglas>();
 
 var app = builder.Build();
 
@@ -80,7 +38,6 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 
-app.AutorizacionClaims();  
 app.UseAuthorization();
 
 app.MapControllers();

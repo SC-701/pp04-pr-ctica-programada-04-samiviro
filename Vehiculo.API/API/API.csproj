@@ -18,6 +18,7 @@
     <ProjectReference Include="..\DA\DA.csproj" />
     <ProjectReference Include="..\Flujo\Flujo.csproj" />
     <ProjectReference Include="..\Reglas\Reglas.csproj" />
+    <ProjectReference Include="..\Servicios\Servicios.csproj" />
   </ItemGroup>
 
 </Project>
