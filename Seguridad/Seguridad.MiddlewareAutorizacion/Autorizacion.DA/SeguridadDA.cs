@@ -1,6 +1,6 @@
 ﻿using Autorizacion.Abstracciones.DA;
 using Autorizacion.Abstracciones.Modelos;
-using System.Data.SqlClient;
+using Microsoft.Data.SqlClient;
 using Dapper;
 
 
